@@ -12,6 +12,11 @@ rebranded for any clinic, beauty salon or studio.
   - Real availability from each doctor's weekly schedule and existing appointments
   - Double-booking protection: bookings lock the doctor's row inside a database transaction
   - Server-side validation (Zod), honeypot spam protection, Google Calendar link on success
+- **Admin panel** (`/admin`) — dashboard with KPIs and doctor workload, appointments table with
+  filters, search and status workflow (pending → confirmed → completed / cancelled), weekly schedule editor
+  - Signed HTTP-only session cookies (HMAC-SHA256), permissions checked in every server action
+  - **Demo access** for portfolio visitors: full interface, read-only, real patient names and phones masked
+  - One-click generator of realistic sample appointments
 - **3 languages** — Russian, Armenian, English (`next-intl`, locale-aware routing, `hreflang` alternates)
 - **Light / dark theme** — no flash on load, remembers the visitor's choice
 - **Responsive** — mobile menu, fluid typography, tested from 375 px to desktop
@@ -23,7 +28,7 @@ rebranded for any clinic, beauty salon or studio.
 
 - [x] Stage 1 — landing page
 - [x] Stage 2 — online booking
-- [ ] Stage 3 — admin panel (appointments, schedule, services)
+- [x] Stage 3 — admin panel
 - [ ] Stage 4 — Telegram notifications for new appointments
 - [ ] Stage 5 — AI assistant that answers patient questions 24/7
 - [x] Deploy to Vercel
@@ -56,6 +61,9 @@ PostgreSQL (PGlite) is created in `~/.clinic-platform/pglite`, migrated and seed
 | Variable | Where | Purpose |
 | --- | --- | --- |
 | `DATABASE_URL` | production | PostgreSQL connection string. Migrations run automatically before `next build`. |
+| `ADMIN_PASSWORD` | production | Password for the admin panel. In development the password is `admin`. |
+| `SESSION_SECRET` | recommended | Secret for signing admin sessions (falls back to `ADMIN_PASSWORD`). |
+| `DEMO_ACCESS` | optional | Set to `false` to hide the read-only demo login. |
 | `PGLITE_DATA_DIR` | optional, local | Custom folder for the embedded development database |
 
 ### Database scripts
@@ -72,15 +80,17 @@ drizzle/             SQL migrations
 messages/            Translations (ru, hy, en) — all visible text lives here
 scripts/             Production migration script
 src/
-  app/[locale]/      Home page and /booking for each language
+  app/[locale]/      Home page, /booking and /admin for each language
   app/api/slots/     Available time slots API
   components/
+    admin/           Admin shell, filters, status badges, schedule editor
     booking/         Booking wizard steps, summary and success screen
     layout/          Header, footer, language switcher, theme toggle
     sections/        Home page sections: hero, services, doctors, pricing…
     ui/              Reusable building blocks: button, container, reveal
   db/                Drizzle schema, connection and reference data seed
   i18n/              Locale routing and request config
+  lib/admin/         Sessions, permission guards, queries, admin server actions, demo data
   lib/booking/       Availability, validation, server action, clinic time helpers
   lib/site-data.ts   Clinic data that does not depend on language (prices, ids)
   proxy.ts           Locale detection and redirects

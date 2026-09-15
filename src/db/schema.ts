@@ -82,10 +82,17 @@ export const appointments = pgTable(
     comment: text("comment"),
     locale: text("locale").notNull(),
     status: appointmentStatus("status").notNull().default("pending"),
+    /** Generated sample data for the portfolio demo — can be wiped from the admin panel. */
+    isDemo: boolean("is_demo").notNull().default(false),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
   },
-  (table) => [index("appointments_doctor_starts_idx").on(table.doctorId, table.startsAt)],
+  (table) => [
+    index("appointments_doctor_starts_idx").on(table.doctorId, table.startsAt),
+    index("appointments_starts_idx").on(table.startsAt),
+  ],
 );
+
+export type AppointmentStatus = (typeof appointmentStatus.enumValues)[number];
 
 export type Service = typeof services.$inferSelect;
 export type Doctor = typeof doctors.$inferSelect;

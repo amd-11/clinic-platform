@@ -72,6 +72,10 @@ export async function seedReferenceData(db: Database) {
       },
     });
 
+  const existingDoctorIds = new Set(
+    (await db.select({ id: doctors.id }).from(doctors)).map((row) => row.id),
+  );
+
   await db
     .insert(doctors)
     .values(
@@ -84,6 +88,7 @@ export async function seedReferenceData(db: Database) {
     )
     .onConflictDoUpdate({
       target: doctors.id,
+      // `active` is managed in the admin panel, so it is never overwritten here
       set: {
         experienceYears: sql`excluded.experience_years`,
         hue: sql`excluded.hue`,
@@ -100,23 +105,15 @@ export async function seedReferenceData(db: Database) {
     )
     .onConflictDoNothing();
 
-  await db
-    .insert(doctorSchedules)
-    .values(
-      Object.entries(scheduleMap).flatMap(([doctorId, days]) =>
-        days.map(([weekday, startMinute, endMinute]) => ({
-          doctorId,
-          weekday,
-          startMinute,
-          endMinute,
-        })),
-      ),
-    )
-    .onConflictDoUpdate({
-      target: [doctorSchedules.doctorId, doctorSchedules.weekday],
-      set: {
-        startMinute: sql`excluded.start_minute`,
-        endMinute: sql`excluded.end_minute`,
-      },
-    });
+  // Default working hours only for doctors added just now —
+  // schedules edited in the admin panel must survive every deploy.
+  const newSchedules = Object.entries(scheduleMap)
+    .filter(([doctorId]) => !existingDoctorIds.has(doctorId))
+    .flatMap(([doctorId, days]) =>
+      days.map(([weekday, startMinute, endMinute]) => ({ doctorId, weekday, startMinute, endMinute })),
+    );
+
+  if (newSchedules.length > 0) {
+    await db.insert(doctorSchedules).values(newSchedules).onConflictDoNothing();
+  }
 }

@@ -321,6 +321,121 @@
       "another": "New booking"
     }
   },
+  "admin": {
+    "meta": {
+      "title": "Admin panel — Aurora Dental"
+    },
+    "login": {
+      "title": "Admin sign in",
+      "subtitle": "For clinic staff",
+      "password": "Password",
+      "submit": "Sign in",
+      "submitting": "Checking…",
+      "invalid": "Incorrect password",
+      "notConfigured": "The admin password is not configured. Add the ADMIN_PASSWORD environment variable on the server.",
+      "devHint": "Development mode: the password is “admin”",
+      "or": "or",
+      "demo": "View demo",
+      "demoHint": "Read-only — patient details are hidden",
+      "backToSite": "Back to site"
+    },
+    "nav": {
+      "dashboard": "Overview",
+      "appointments": "Appointments",
+      "schedule": "Schedule",
+      "site": "Open website",
+      "logout": "Sign out",
+      "menu": "Menu"
+    },
+    "role": {
+      "admin": "Administrator",
+      "demo": "Demo mode"
+    },
+    "demoBanner": "Demo mode: read-only, patient names and phone numbers are hidden.",
+    "errors": {
+      "demo": "Not available in demo mode",
+      "unauthorized": "Your session has expired. Please sign in again.",
+      "invalid": "Please check the entered data",
+      "server": "Couldn't save. Please try again."
+    },
+    "status": {
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "dashboard": {
+      "title": "Overview",
+      "subtitle": "Clinic summary for {date}",
+      "stats": {
+        "today": "Appointments today",
+        "pending": "Awaiting confirmation",
+        "week": "Next 7 days",
+        "new": "New in 30 days"
+      },
+      "todayTitle": "Today's schedule",
+      "todayEmpty": "No appointments today",
+      "pendingTitle": "Needs confirmation",
+      "pendingEmpty": "All upcoming appointments are confirmed",
+      "loadTitle": "Doctor workload, next 7 days",
+      "loadUnit": "{count, plural, one {# appointment} other {# appointments}}",
+      "viewAll": "All appointments"
+    },
+    "appointments": {
+      "title": "Appointments",
+      "found": "{count, plural, one {# appointment found} other {# appointments found}}",
+      "search": "Name or phone",
+      "allStatuses": "All statuses",
+      "allDoctors": "All doctors",
+      "range": {
+        "upcoming": "Upcoming",
+        "today": "Today",
+        "week": "7 days",
+        "past": "Past",
+        "all": "All"
+      },
+      "columns": {
+        "patient": "Patient",
+        "when": "Date & time",
+        "service": "Service",
+        "doctor": "Doctor",
+        "status": "Status"
+      },
+      "empty": "No appointments found",
+      "emptyHint": "Try changing the filters",
+      "demoTag": "demo",
+      "confirm": "Confirm",
+      "complete": "Complete",
+      "cancel": "Cancel",
+      "restore": "Restore",
+      "delete": "Delete",
+      "deleteConfirm": "Delete this appointment permanently? This cannot be undone.",
+      "call": "Call",
+      "comment": "Comment",
+      "actions": "Actions",
+      "prev": "Previous",
+      "next": "Next",
+      "page": "Page {page} of {pages}",
+      "reset": "Reset filters"
+    },
+    "schedule": {
+      "title": "Doctor schedules",
+      "subtitle": "Working hours define which times patients can book online.",
+      "active": "Accepting bookings",
+      "dayOff": "Day off",
+      "save": "Save",
+      "saving": "Saving…",
+      "saved": "Saved",
+      "invalidRange": "End time must be after start time",
+      "from": "from",
+      "to": "to",
+      "demoTitle": "Demo data",
+      "demoText": "Fills the calendar with realistic fictional appointments for 2 weeks back and forward — handy for showing the panel to clients.",
+      "demoCount": "{count, plural, =0 {No demo appointments} one {# demo appointment} other {# demo appointments}}",
+      "demoGenerate": "Generate",
+      "demoClear": "Delete demo appointments"
+    }
+  },
   "footer": {
     "tagline": "Modern dentistry you'll actually look forward to.",
     "navigation": "Navigation",
