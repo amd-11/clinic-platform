@@ -1,5 +1,7 @@
 # Aurora Dental — clinic platform
 
+**Live demo: [aurora-dental-yerevan.vercel.app](https://aurora-dental-yerevan.vercel.app)**
+
 A modern, multilingual website for a dental clinic, built as a portfolio project.
 The clinic, doctors and reviews are fictional — the project is a template that can be
 rebranded for any clinic, beauty salon or studio.
