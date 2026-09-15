@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
+import { Link } from "@/i18n/navigation";
 import { BOOKING_HREF } from "@/lib/links";
 import { navItems, siteConfig } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
@@ -43,19 +44,19 @@ export function Header() {
       )}
     >
       <Container className="flex h-18 items-center justify-between gap-4">
-        <a href="#top" aria-label={siteConfig.name} onClick={() => setMenuOpen(false)}>
+        <Link href="/" aria-label={siteConfig.name} onClick={() => setMenuOpen(false)}>
           <Logo />
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.id}
               href={item.href}
               className="rounded-full px-3.5 py-2 text-sm font-medium text-muted transition-colors hover:bg-accent hover:text-foreground"
             >
               {t(item.id)}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -88,17 +89,21 @@ export function Header() {
           >
             <Container className="flex flex-col gap-1 pt-4 pb-28">
               {navItems.map((item, index) => (
-                <motion.a
+                <motion.div
                   key={item.id}
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
                   initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 * index + 0.1 }}
-                  className="border-b border-border py-4 font-display text-2xl font-semibold"
+                  className="border-b border-border"
                 >
-                  {t(item.id)}
-                </motion.a>
+                  <Link
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="block py-4 font-display text-2xl font-semibold"
+                  >
+                    {t(item.id)}
+                  </Link>
+                </motion.div>
               ))}
               <div className="mt-6 flex flex-col gap-3">
                 <ButtonLink href={BOOKING_HREF} size="lg" onClick={() => setMenuOpen(false)}>

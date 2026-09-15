@@ -17,13 +17,14 @@ export const siteConfig = {
   reviewsCount: 327,
 } as const;
 
+// Prefixed with "/" so the links also work from other pages, e.g. /booking → home#services
 export const navItems = [
-  { id: "services", href: "#services" },
-  { id: "doctors", href: "#doctors" },
-  { id: "prices", href: "#prices" },
-  { id: "reviews", href: "#reviews" },
-  { id: "faq", href: "#faq" },
-  { id: "contacts", href: "#contacts" },
+  { id: "services", href: "/#services" },
+  { id: "doctors", href: "/#doctors" },
+  { id: "prices", href: "/#prices" },
+  { id: "reviews", href: "/#reviews" },
+  { id: "faq", href: "/#faq" },
+  { id: "contacts", href: "/#contacts" },
 ] as const;
 
 export const services = [

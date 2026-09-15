@@ -5,6 +5,8 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // PGlite ships WebAssembly and data files that must be loaded from node_modules at runtime
+  serverExternalPackages: ["@electric-sql/pglite"],
 };
 
 export default withNextIntl(nextConfig);

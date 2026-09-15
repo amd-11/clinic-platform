@@ -3,7 +3,8 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { BOOKING_HREF } from "@/lib/links";
+import { Link } from "@/i18n/navigation";
+import { bookingHref } from "@/lib/links";
 import { doctors } from "@/lib/site-data";
 
 function initials(fullName: string) {
@@ -54,14 +55,14 @@ export function Doctors() {
                     <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
                       {t(`items.${doctor.id}.bio`)}
                     </p>
-                    <a
-                      href={BOOKING_HREF}
+                    <Link
+                      href={bookingHref({ doctor: doctor.id })}
                       className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5"
                       style={{ transition: "gap 200ms" }}
                     >
                       {t("book")}
                       <ArrowRight className="size-4" aria-hidden />
-                    </a>
+                    </Link>
                   </div>
                 </article>
               </Reveal>

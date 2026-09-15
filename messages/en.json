@@ -241,6 +241,86 @@
     "telegram": "Telegram",
     "mapLabel": "Central Yerevan · 5 minutes from Yeritasardakan metro"
   },
+  "booking": {
+    "meta": {
+      "title": "Book online — Aurora Dental",
+      "description": "Choose a service, doctor and time that suits you. Booking takes 1 minute."
+    },
+    "eyebrow": "Online booking",
+    "title": "Book in 1 minute",
+    "subtitle": "Choose a service, doctor and time — our coordinator will call you to confirm.",
+    "back": "Back to home",
+    "steps": {
+      "service": "Service",
+      "doctor": "Doctor",
+      "datetime": "Date & time",
+      "contacts": "Contacts"
+    },
+    "next": "Continue",
+    "prev": "Back",
+    "stepOf": "Step {current} of {total}",
+    "service": {
+      "title": "Which service do you need?",
+      "duration": "{minutes} min"
+    },
+    "doctor": {
+      "title": "Choose a doctor",
+      "any": "Any doctor",
+      "anyDescription": "We'll match you with the first available specialist — more times to choose from"
+    },
+    "datetime": {
+      "title": "Pick a date and time",
+      "loading": "Looking for available times…",
+      "empty": "No available times on this day. Please pick another date.",
+      "closed": "Closed",
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "evening": "Evening",
+      "error": "Couldn't load the schedule.",
+      "retry": "Try again",
+      "previousDays": "Previous days",
+      "nextDays": "Next days"
+    },
+    "contacts": {
+      "title": "How can we reach you?",
+      "name": "Full name",
+      "namePlaceholder": "Anna Petrosyan",
+      "phone": "Phone",
+      "phonePlaceholder": "+374 99 123 456",
+      "comment": "Comment",
+      "commentPlaceholder": "For example, what's bothering you",
+      "optional": "optional",
+      "consent": "I agree to the processing of my personal data to book an appointment",
+      "submit": "Book appointment",
+      "submitting": "Booking…"
+    },
+    "errors": {
+      "name": "Please enter your name — at least 2 characters",
+      "phone": "Please enter a valid phone number",
+      "consent": "We can't book you without your consent",
+      "slotTaken": "Someone just booked this time. Please choose another one.",
+      "server": "Something went wrong. Please try again or give us a call.",
+      "unavailable": "Online booking is temporarily unavailable. Call us: {phone}"
+    },
+    "summary": {
+      "title": "Your appointment",
+      "service": "Service",
+      "doctor": "Doctor",
+      "dateTime": "Date & time",
+      "price": "Price",
+      "notSelected": "Not selected",
+      "anyDoctor": "Any available doctor",
+      "note": "Pay after your visit. You can cancel or reschedule by phone."
+    },
+    "success": {
+      "title": "You're booked!",
+      "subtitle": "Our coordinator will call you within 15 minutes during opening hours to confirm.",
+      "number": "Booking number",
+      "calendar": "Add to Google Calendar",
+      "home": "Back to home",
+      "another": "New booking"
+    }
+  },
   "footer": {
     "tagline": "Modern dentistry you'll actually look forward to.",
     "navigation": "Navigation",

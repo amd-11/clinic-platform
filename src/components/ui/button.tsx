@@ -1,3 +1,4 @@
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 type Variant = "primary" | "secondary" | "ghost";
@@ -34,8 +35,20 @@ export function Button({ variant, size, className, ...props }: ButtonProps) {
   return <button className={buttonVariants({ variant, size, className })} {...props} />;
 }
 
-type ButtonLinkProps = React.ComponentProps<"a"> & { variant?: Variant; size?: Size };
+type ButtonLinkProps = React.ComponentProps<"a"> & {
+  href: string;
+  variant?: Variant;
+  size?: Size;
+};
 
-export function ButtonLink({ variant, size, className, ...props }: ButtonLinkProps) {
-  return <a className={buttonVariants({ variant, size, className })} {...props} />;
+/**
+ * Internal paths ("/booking") go through the locale-aware Link, so /hy stays /hy/booking.
+ * Anchors, phone numbers and external URLs render a plain <a>.
+ */
+export function ButtonLink({ variant, size, className, href, ...props }: ButtonLinkProps) {
+  const classes = buttonVariants({ variant, size, className });
+  if (href.startsWith("/")) {
+    return <Link href={href} className={classes} {...props} />;
+  }
+  return <a href={href} className={classes} {...props} />;
 }

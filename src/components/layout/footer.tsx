@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
+import { Link } from "@/i18n/navigation";
 import { navItems, siteConfig } from "@/lib/site-data";
 
 export function Footer() {
@@ -22,9 +23,9 @@ export function Footer() {
           <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2.5 text-sm text-muted">
             {navItems.map((item) => (
               <li key={item.id}>
-                <a href={item.href} className="transition-colors hover:text-foreground">
+                <Link href={item.href} className="transition-colors hover:text-foreground">
                   {nav(item.id)}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

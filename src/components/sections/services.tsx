@@ -1,29 +1,13 @@
-import {
-  ArrowUpRight,
-  Baby,
-  Microscope,
-  ScanLine,
-  ShieldCheck,
-  Sparkles,
-  ToothbrushSparkles,
-  type LucideIcon,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { BOOKING_HREF } from "@/lib/links";
-import { services, type ServiceId } from "@/lib/site-data";
+import { Link } from "@/i18n/navigation";
+import { bookingHref } from "@/lib/links";
+import { serviceIcon } from "@/lib/service-icons";
+import { services } from "@/lib/site-data";
 import { formatAmd } from "@/lib/utils";
-
-const icons: Record<ServiceId, LucideIcon> = {
-  therapy: Microscope,
-  implants: ShieldCheck,
-  orthodontics: ScanLine,
-  aesthetics: Sparkles,
-  hygiene: ToothbrushSparkles,
-  kids: Baby,
-};
 
 export function Services() {
   const t = useTranslations("services");
@@ -35,11 +19,11 @@ export function Services() {
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => {
-            const Icon = icons[service.id];
+            const Icon = serviceIcon(service.id);
             return (
               <Reveal key={service.id} delay={index * 0.06}>
-                <a
-                  href={BOOKING_HREF}
+                <Link
+                  href={bookingHref({ service: service.id })}
                   className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10"
                 >
                   <div
@@ -65,7 +49,7 @@ export function Services() {
                       {formatAmd(service.priceFrom)}
                     </span>
                   </p>
-                </a>
+                </Link>
               </Reveal>
             );
           })}
