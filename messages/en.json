@@ -1,0 +1,252 @@
+{
+  "meta": {
+    "title": "Aurora Dental — modern dentistry in Yerevan",
+    "description": "Treatment, implants, aligners and smile design. Book online in 1 minute, 3D diagnostics and up to 10-year warranty."
+  },
+  "nav": {
+    "services": "Services",
+    "doctors": "Doctors",
+    "prices": "Prices",
+    "reviews": "Reviews",
+    "faq": "FAQ",
+    "contacts": "Contacts",
+    "book": "Book now",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language"
+  },
+  "theme": {
+    "toggle": "Toggle theme"
+  },
+  "hero": {
+    "badge": "Accepting new patients",
+    "title": "A healthy smile",
+    "titleAccent": "without fear or pain",
+    "subtitle": "Modern dentistry in central Yerevan: 3D diagnostics, digital treatment planning and honest prices. Book online in 1 minute.",
+    "ctaPrimary": "Book online",
+    "ctaSecondary": "See prices",
+    "stats": {
+      "years": "15+",
+      "yearsLabel": "years of practice",
+      "patients": "12,000",
+      "patientsLabel": "happy patients",
+      "rating": "4.9",
+      "ratingLabel": "Google rating"
+    },
+    "card": {
+      "nextSlot": "Next available",
+      "today": "Today",
+      "doctorName": "Anna Sargsyan",
+      "doctorRole": "Orthodontist",
+      "book": "Reserve",
+      "warranty": "Up to 10-year warranty",
+      "painless": "Pain-free treatment",
+      "reviews": "320+ reviews"
+    }
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "Complete dental care under one roof",
+    "subtitle": "From prevention to full smile restoration. Every treatment starts with diagnostics and a clear plan.",
+    "from": "from",
+    "book": "Book",
+    "items": {
+      "therapy": {
+        "title": "General dentistry",
+        "description": "Fillings and root canal treatment under a microscope. We save your natural tooth whenever possible."
+      },
+      "implants": {
+        "title": "Dental implants",
+        "description": "Straumann and Osstem implants placed with a surgical guide. A new tooth in a single surgical visit."
+      },
+      "orthodontics": {
+        "title": "Aligners & braces",
+        "description": "Clear aligners and ceramic braces. See your result in 3D before treatment even begins."
+      },
+      "aesthetics": {
+        "title": "Veneers & aesthetics",
+        "description": "Ceramic veneers and whitening. Your smile is designed digitally with Digital Smile Design."
+      },
+      "hygiene": {
+        "title": "Hygiene",
+        "description": "Professional Air Flow and ultrasonic cleaning. Recommended every 6 months."
+      },
+      "kids": {
+        "title": "Pediatric dentistry",
+        "description": "Gentle, playful treatment. The first visit is a meet-and-greet with no instruments."
+      }
+    }
+  },
+  "process": {
+    "eyebrow": "How it works",
+    "title": "A clear path from booking to results",
+    "subtitle": "No surprises: you know the plan, timeline and cost before treatment starts.",
+    "steps": {
+      "booking": {
+        "title": "Online booking",
+        "description": "Choose a service, doctor and time that suits you. Confirmation arrives instantly."
+      },
+      "diagnostics": {
+        "title": "3D diagnostics",
+        "description": "CT scan and intraoral scanning in just 15 minutes."
+      },
+      "plan": {
+        "title": "Plan & estimate",
+        "description": "Your doctor walks you through the options and the price is fixed in your contract."
+      },
+      "warranty": {
+        "title": "Treatment & warranty",
+        "description": "We follow clinical protocols, provide a warranty and remind you about check-ups."
+      }
+    }
+  },
+  "doctors": {
+    "eyebrow": "Our team",
+    "title": "Doctors patients trust",
+    "subtitle": "We train regularly in Europe and follow international clinical protocols.",
+    "experience": "{years, plural, one {# year of experience} other {# years of experience}}",
+    "book": "Book with this doctor",
+    "items": {
+      "anna": {
+        "name": "Anna Sargsyan",
+        "role": "Orthodontist",
+        "bio": "Certified Invisalign provider with more than 900 completed cases."
+      },
+      "david": {
+        "name": "David Petrosyan",
+        "role": "Implant surgeon",
+        "bio": "ITI member specialising in complex implant cases and bone grafting."
+      },
+      "mariam": {
+        "name": "Mariam Hakobyan",
+        "role": "Endodontist",
+        "bio": "Microscope-assisted root canal treatment. Saves teeth others suggest removing."
+      },
+      "levon": {
+        "name": "Levon Grigoryan",
+        "role": "Prosthodontist, aesthetics",
+        "bio": "Ceramic veneers and crowns. Creator of more than 400 new smiles."
+      }
+    }
+  },
+  "pricing": {
+    "eyebrow": "Prices",
+    "title": "Transparent pricing, no hidden fees",
+    "subtitle": "Your final cost is fixed in the treatment plan after the consultation.",
+    "note": "Prices are in Armenian dram. Consultation is free if you start treatment.",
+    "book": "Book a consultation",
+    "categories": {
+      "therapy": "General",
+      "surgery": "Surgery & implants",
+      "orthodontics": "Orthodontics",
+      "aesthetics": "Aesthetics"
+    },
+    "items": {
+      "consultation": "Consultation & check-up",
+      "caries": "Cavity filling",
+      "canal": "Microscope root canal treatment",
+      "hygiene": "Professional cleaning",
+      "extraction": "Tooth extraction",
+      "wisdom": "Wisdom tooth extraction",
+      "implant": "Implant, all-inclusive",
+      "boneGraft": "Bone grafting",
+      "braces": "Ceramic braces (one arch)",
+      "aligners": "Aligners (full course)",
+      "retainer": "Retainer",
+      "veneer": "Ceramic veneer",
+      "crown": "Zirconia crown",
+      "whitening": "Philips Zoom whitening"
+    }
+  },
+  "reviews": {
+    "eyebrow": "Reviews",
+    "title": "What our patients say",
+    "summary": "{rating} out of 5 — based on {count} reviews",
+    "items": {
+      "r1": {
+        "name": "Lilit A.",
+        "service": "Aligners",
+        "text": "I was afraid treatment would take years. Anna showed me a 3D model of the result, and 11 months later my smile looked exactly like it."
+      },
+      "r2": {
+        "name": "Sergey K.",
+        "service": "Implants",
+        "text": "Two implants in a single visit. Everything was explained in advance and the price didn't change by a single dram."
+      },
+      "r3": {
+        "name": "Ani M.",
+        "service": "Pediatric dentistry",
+        "text": "My son now asks to go to the dentist. The first visit was just getting to know each other, which helped a lot."
+      },
+      "r4": {
+        "name": "Aram T.",
+        "service": "Root canal",
+        "text": "Another clinic told me to pull the tooth. Here they saved it under a microscope. Two years later it's perfect."
+      },
+      "r5": {
+        "name": "Elena R.",
+        "service": "Veneers",
+        "text": "I flew in from abroad for one week. Everything was done on schedule and the result looks very natural."
+      },
+      "r6": {
+        "name": "Gor S.",
+        "service": "Hygiene",
+        "text": "Easy online booking and a Telegram reminder. You arrive and they're ready for you — no waiting."
+      }
+    }
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Frequently asked questions",
+    "subtitle": "Didn't find an answer? Message us on WhatsApp or Telegram — we reply within 15 minutes.",
+    "items": {
+      "pain": {
+        "q": "Will it hurt?",
+        "a": "We use modern anaesthetics and computer-controlled anaesthesia. Most patients don't even feel the injection."
+      },
+      "price": {
+        "q": "Can the price change during treatment?",
+        "a": "No. After diagnostics we prepare a plan with an estimate, and the price is fixed in your contract."
+      },
+      "installments": {
+        "q": "Do you offer installments?",
+        "a": "Yes, interest-free installments for up to 12 months on implants, aligners and veneers."
+      },
+      "warranty": {
+        "q": "What warranty do you provide?",
+        "a": "From 1 year on fillings up to 10 years on implants and crowns with regular check-ups."
+      },
+      "tourists": {
+        "q": "I live abroad. Can I complete treatment in one trip?",
+        "a": "Yes. Send us your X-rays in advance and we'll build a plan and schedule around your travel dates."
+      },
+      "kids": {
+        "q": "At what age should I bring my child?",
+        "a": "We recommend the first preventive check-up at 2–3 years old, once the baby teeth have come in."
+      }
+    }
+  },
+  "contact": {
+    "eyebrow": "Contacts",
+    "title": "Book your consultation",
+    "subtitle": "Choose whatever works best for you. Online booking is available 24/7.",
+    "address": "Address",
+    "addressValue": "20 Abovyan St, Yerevan",
+    "phone": "Phone",
+    "hours": "Opening hours",
+    "hoursWeekdays": "Mon–Fri: 9:00–20:00",
+    "hoursWeekend": "Sat: 10:00–16:00, Sun closed",
+    "book": "Book online",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "mapLabel": "Central Yerevan · 5 minutes from Yeritasardakan metro"
+  },
+  "footer": {
+    "tagline": "Modern dentistry you'll actually look forward to.",
+    "navigation": "Navigation",
+    "contacts": "Contacts",
+    "rights": "© {year} Aurora Dental. All rights reserved.",
+    "demo": "Portfolio demo project. The clinic and doctors are fictional.",
+    "developer": "Website by"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  // TypeScript from the project (same version as the build uses)
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+
+  // Tailwind CSS 4: class autocomplete and colour previews
+  "tailwindCSS.experimental.configFile": "src/app/globals.css",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+
+  // ESLint shows problems while you type and fixes what it can on save
+  "eslint.useFlatConfig": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // i18n Ally: shows the Russian text next to t("…") keys in the code
+  "i18n-ally.localesPaths": ["messages"],
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.sourceLanguage": "ru",
+  "i18n-ally.displayLanguage": "ru",
+  "i18n-ally.enabledFrameworks": ["next-intl"],
+
+  "editor.tabSize": 2,
+  "files.eol": "\n",
+  "search.exclude": {
+    "**/.next": true,
+    "**/node_modules": true
+  }
+}
