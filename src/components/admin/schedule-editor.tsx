@@ -4,6 +4,7 @@ import { AlertCircle, Check, Loader2, Save } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
 import { useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
+import { DoctorAvatar } from "@/components/ui/doctor-avatar";
 import { saveDoctorSchedule, setDoctorActive } from "@/lib/admin/actions";
 import {
   CLINIC_TIME_ZONE,
@@ -22,6 +23,7 @@ type ScheduleEditorProps = {
     name: string;
     role: string;
     hue: number;
+    variant: number;
     active: boolean;
     services: string[];
     schedule: ScheduleDay[];
@@ -103,12 +105,8 @@ export function ScheduleEditor({ doctor, readOnly }: ScheduleEditorProps) {
     <article className={cn("rounded-2xl border border-border bg-surface", !active && "opacity-75")}>
       <header className="flex flex-wrap items-center justify-between gap-4 border-b border-border p-5">
         <div className="flex items-center gap-3">
-          <span
-            aria-hidden
-            className="grid size-11 place-items-center rounded-full font-display font-semibold text-white"
-            style={{ background: `linear-gradient(160deg, hsl(${doctor.hue} 45% 65%), hsl(${doctor.hue} 35% 45%))` }}
-          >
-            {doctor.name.split(" ").map((part) => part.charAt(0)).join("").slice(0, 2)}
+          <span aria-hidden className="size-11 overflow-hidden rounded-full">
+            <DoctorAvatar hue={doctor.hue} variant={doctor.variant} />
           </span>
           <div>
             <h2 className="font-bold">{doctor.name}</h2>

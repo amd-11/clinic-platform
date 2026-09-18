@@ -3,7 +3,8 @@
 import { Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
 import type { BookingDoctor } from "@/lib/booking/catalog";
-import { initials, useCatalogLabels } from "./labels";
+import { DoctorAvatar } from "@/components/ui/doctor-avatar";
+import { useCatalogLabels } from "./labels";
 import { OptionCard } from "./option-card";
 
 export const ANY_DOCTOR = "any";
@@ -39,7 +40,7 @@ export function StepDoctor({ doctors, selected, onSelect }: StepDoctorProps) {
           </OptionCard>
         )}
 
-        {doctors.map((doctor) => {
+        {doctors.map((doctor, index) => {
           const name = labels.doctorName(doctor.id);
           return (
             <OptionCard
@@ -47,14 +48,8 @@ export function StepDoctor({ doctors, selected, onSelect }: StepDoctorProps) {
               selected={selected === doctor.id}
               onSelect={() => onSelect(doctor.id)}
             >
-              <span
-                className="grid size-14 shrink-0 place-items-center rounded-full font-display text-lg font-semibold text-white dark:brightness-90"
-                style={{
-                  background: `linear-gradient(160deg, hsl(${doctor.hue} 45% 70%), hsl(${doctor.hue} 35% 50%))`,
-                }}
-                aria-hidden
-              >
-                {initials(name)}
+              <span className="size-14 shrink-0 overflow-hidden rounded-full dark:brightness-90" aria-hidden>
+                <DoctorAvatar hue={doctor.hue} variant={index} />
               </span>
               <span className="min-w-0 pr-6">
                 <span className="block font-bold">{name}</span>

@@ -1,10 +1,27 @@
 # Aurora Dental — clinic platform
 
-**Live demo: [aurora-dental-yerevan.vercel.app](https://aurora-dental-yerevan.vercel.app)**
+[![CI](https://github.com/amd-11/clinic-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/amd-11/clinic-platform/actions/workflows/ci.yml)
+[![Next.js 16](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Tests](https://img.shields.io/badge/tests-34%20passing-success)](src/lib)
+
+**Live demo: [aurora-dental-yerevan.vercel.app](https://aurora-dental-yerevan.vercel.app)** ·
+**Admin panel demo (read-only): [/admin](https://aurora-dental-yerevan.vercel.app/admin)** — press “View demo”
 
 A modern, multilingual website for a dental clinic with online booking, built as a portfolio project.
 The clinic, doctors and reviews are fictional — the project is a template that can be
 rebranded for any clinic, beauty salon or studio.
+
+
+## Screenshots
+
+| Home page | Online booking |
+| --- | --- |
+| [![Home page](docs/screenshots/home.png)](docs/screenshots/home.png) | [![Booking](docs/screenshots/booking.png)](docs/screenshots/booking.png) |
+
+| Dark theme (Armenian) | Mobile |
+| --- | --- |
+| [![Dark theme](docs/screenshots/dark.png)](docs/screenshots/dark.png) | <img src="docs/screenshots/mobile.png" width="260" alt="Mobile view" /> |
 
 ## Features
 
@@ -49,6 +66,20 @@ rebranded for any clinic, beauty salon or studio.
 | i18n | next-intl 4 |
 | Animation | Framer Motion |
 | Icons | lucide-react |
+
+## Quality checks
+
+```bash
+npm run lint       # ESLint
+npm run typecheck  # TypeScript
+npm test           # Vitest: 34 tests, including booking logic against a real database
+npm run build      # production build
+```
+
+Every push runs the same four checks in GitHub Actions.
+The test suite covers clinic-time conversion, form validation, patient-data masking and —
+against an embedded PostgreSQL — slot availability, appointment duration blocking and the
+double-booking guard (three parallel bookings, only one wins).
 
 ## Getting started
 

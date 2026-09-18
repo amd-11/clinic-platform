@@ -32,7 +32,7 @@ export default async function AdminSchedulePage({ params }: PageProps<"/[locale]
       <p className="mt-1 text-muted">{t("subtitle")}</p>
 
       <div className="mt-8 grid gap-6 xl:grid-cols-2">
-        {data.doctors.map((doctor) => (
+        {data.doctors.map((doctor, index) => (
           <ScheduleEditor
             key={doctor.id}
             readOnly={readOnly}
@@ -41,6 +41,7 @@ export default async function AdminSchedulePage({ params }: PageProps<"/[locale]
               name: fmt.doctorName(doctor.id),
               role: tDoctors(`${doctor.id as DoctorKey}.role`),
               hue: doctor.hue,
+              variant: index,
               active: doctor.active,
               services: doctor.serviceIds.map((id) => fmt.serviceTitle(id)),
               schedule: doctor.schedule,
