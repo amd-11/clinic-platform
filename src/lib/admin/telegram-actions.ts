@@ -21,6 +21,7 @@ import {
   getSetting,
   setSetting,
 } from "@/lib/telegram/settings";
+import { siteUrl } from "@/lib/site-url";
 import { authorizeMutation } from "./guard";
 
 export type TelegramStatus = {
@@ -37,13 +38,6 @@ export type TelegramStatus = {
 export type TelegramResult =
   | { ok: true; message: "connected" | "test" | "disconnected" }
   | { ok: false; error: "unauthorized" | "demo" | "noUrl" | "noToken" | "noChat" | "failed"; message?: string };
-
-/** Public base URL of the deployment; Telegram cannot call localhost. */
-function siteUrl(): string | null {
-  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
-  const host = process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
-  return host ? `https://${host}` : null;
-}
 
 export async function getTelegramStatus(): Promise<TelegramStatus> {
   const base: TelegramStatus = {

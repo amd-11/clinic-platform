@@ -10,6 +10,7 @@ import { Pricing } from "@/components/sections/pricing";
 import { Process } from "@/components/sections/process";
 import { Reviews } from "@/components/sections/reviews";
 import { Services } from "@/components/sections/services";
+import { ClinicSchema } from "@/components/seo/clinic-schema";
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
@@ -18,6 +19,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
 
   return (
     <>
+      <ClinicSchema locale={locale as Locale} />
       <Header />
       <main>
         <Hero />

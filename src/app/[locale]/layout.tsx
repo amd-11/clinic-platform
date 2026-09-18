@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import {
   Manrope,
@@ -10,6 +11,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ThemeScript } from "@/components/layout/theme-script";
 import { routing } from "@/i18n/routing";
+import { siteUrlOrLocal } from "@/lib/site-url";
 import "../globals.css";
 
 const manrope = Manrope({
@@ -49,6 +51,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
   const t = await getTranslations({ locale, namespace: "meta" });
 
   return {
+    metadataBase: new URL(siteUrlOrLocal()),
     title: t("title"),
     description: t("description"),
     alternates: {
@@ -90,6 +93,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
       </head>
       <body className="min-h-dvh">
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

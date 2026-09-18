@@ -501,5 +501,11 @@
     "test": "🔔 Test notification. Everything works!",
     "notFound": "Appointment not found",
     "forbidden": "Not allowed"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "This page doesn't exist. The link may be outdated.",
+    "home": "Back to home",
+    "book": "Book online"
   }
 }
