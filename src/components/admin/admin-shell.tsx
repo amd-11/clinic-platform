@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  Bell,
   CalendarClock,
   ExternalLink,
   Eye,
@@ -22,10 +23,15 @@ import { logout } from "@/lib/admin/auth-actions";
 import type { AdminRole } from "@/lib/admin/session";
 import { cn } from "@/lib/utils";
 
-const navigation: { href: string; key: "dashboard" | "appointments" | "schedule"; icon: LucideIcon }[] = [
+const navigation: {
+  href: string;
+  key: "dashboard" | "appointments" | "schedule" | "notifications";
+  icon: LucideIcon;
+}[] = [
   { href: "/admin", key: "dashboard", icon: LayoutDashboard },
   { href: "/admin/appointments", key: "appointments", icon: ListChecks },
   { href: "/admin/schedule", key: "schedule", icon: CalendarClock },
+  { href: "/admin/notifications", key: "notifications", icon: Bell },
 ];
 
 export function AdminShell({ role, children }: { role: AdminRole; children: React.ReactNode }) {

@@ -345,7 +345,8 @@
       "schedule": "Schedule",
       "site": "Open website",
       "logout": "Sign out",
-      "menu": "Menu"
+      "menu": "Menu",
+      "notifications": "Notifications"
     },
     "role": {
       "admin": "Administrator",
@@ -434,6 +435,43 @@
       "demoCount": "{count, plural, =0 {No demo appointments} one {# demo appointment} other {# demo appointments}}",
       "demoGenerate": "Generate",
       "demoClear": "Delete demo appointments"
+    },
+    "telegram": {
+      "title": "Telegram notifications",
+      "subtitle": "Every new appointment arrives as a Telegram message, where it can be confirmed or cancelled right away.",
+      "state": {
+        "token": "Bot token",
+        "bot": "Bot",
+        "webhook": "Webhook",
+        "chat": "Notification chat",
+        "missing": "Not configured",
+        "ready": "Configured",
+        "connected": "Connected",
+        "notConnected": "Not connected"
+      },
+      "steps": {
+        "title": "How to connect",
+        "one": "In Telegram, send /newbot to @BotFather and copy the token it gives you.",
+        "two": "Add the token to Vercel as TELEGRAM_BOT_TOKEN (type Secret) and redeploy.",
+        "three": "Press “Connect bot”, then send /start to your bot within 10 minutes."
+      },
+      "connect": "Connect bot",
+      "working": "Working…",
+      "pairing": "Open your bot in Telegram and send /start. About {minutes} min left.",
+      "test": "Send test",
+      "disconnect": "Disconnect",
+      "errors": {
+        "noUrl": "A public site address is required: pairing only works on the deployed site, not on localhost.",
+        "noToken": "Add the TELEGRAM_BOT_TOKEN variable first and redeploy.",
+        "noChat": "Connect the bot with /start first.",
+        "failed": "Telegram returned an error: {message}"
+      },
+      "ok": {
+        "connected": "Done. Now send /start to your bot in Telegram.",
+        "test": "Test message sent to Telegram.",
+        "disconnected": "Bot disconnected, notifications have stopped."
+      },
+      "lastError": "Last Telegram error: {message}"
     }
   },
   "footer": {
@@ -443,5 +481,25 @@
     "rights": "© {year} Aurora Dental. All rights reserved.",
     "demo": "Portfolio demo project. The clinic and doctors are fictional.",
     "developer": "Website by"
+  },
+  "telegram": {
+    "newAppointment": "🦷 <b>New appointment</b>",
+    "patient": "Patient",
+    "phone": "Phone",
+    "service": "Service",
+    "doctor": "Doctor",
+    "when": "When",
+    "comment": "Comment",
+    "confirm": "✅ Confirm",
+    "cancel": "❌ Cancel",
+    "statusConfirmed": "✅ <b>Appointment confirmed</b>",
+    "statusCancelled": "❌ <b>Appointment cancelled</b>",
+    "done": "Done",
+    "paired": "✅ Bot connected! New appointment notifications will arrive here.",
+    "pairingClosed": "⛔ Pairing is not open. Go to the admin panel → Notifications → “Connect bot” and send /start again.",
+    "alreadyPaired": "The bot is already connected to this chat.",
+    "test": "🔔 Test notification. Everything works!",
+    "notFound": "Appointment not found",
+    "forbidden": "Not allowed"
   }
 }

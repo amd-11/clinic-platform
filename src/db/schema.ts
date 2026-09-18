@@ -97,3 +97,10 @@ export type AppointmentStatus = (typeof appointmentStatus.enumValues)[number];
 export type Service = typeof services.$inferSelect;
 export type Doctor = typeof doctors.$inferSelect;
 export type Appointment = typeof appointments.$inferSelect;
+
+/** Small key/value store for runtime settings (e.g. the Telegram chat to notify). */
+export const settings = pgTable("settings", {
+  key: text("key").primaryKey(),
+  value: text("value").notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+});

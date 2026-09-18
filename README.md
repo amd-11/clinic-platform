@@ -17,6 +17,10 @@ rebranded for any clinic, beauty salon or studio.
   - Signed HTTP-only session cookies (HMAC-SHA256), permissions checked in every server action
   - **Demo access** for portfolio visitors: full interface, read-only, real patient names and phones masked
   - One-click generator of realistic sample appointments
+- **Telegram notifications** — every new booking is pushed to the clinic's Telegram chat with
+  inline **Confirm / Cancel** buttons that update the appointment straight from the chat
+  - Webhook protected by a secret token derived from the bot token
+  - Chat pairing from the admin panel: open a 10-minute window, send `/start`, done
 - **3 languages** — Russian, Armenian, English (`next-intl`, locale-aware routing, `hreflang` alternates)
 - **Light / dark theme** — no flash on load, remembers the visitor's choice
 - **Responsive** — mobile menu, fluid typography, tested from 375 px to desktop
@@ -29,7 +33,7 @@ rebranded for any clinic, beauty salon or studio.
 - [x] Stage 1 — landing page
 - [x] Stage 2 — online booking
 - [x] Stage 3 — admin panel
-- [ ] Stage 4 — Telegram notifications for new appointments
+- [x] Stage 4 — Telegram notifications
 - [ ] Stage 5 — AI assistant that answers patient questions 24/7
 - [x] Deploy to Vercel
 
@@ -64,6 +68,8 @@ PostgreSQL (PGlite) is created in `~/.clinic-platform/pglite`, migrated and seed
 | `ADMIN_PASSWORD` | production | Password for the admin panel. In development the password is `admin`. |
 | `SESSION_SECRET` | recommended | Secret for signing admin sessions (falls back to `ADMIN_PASSWORD`). |
 | `DEMO_ACCESS` | optional | Set to `false` to hide the read-only demo login. |
+| `TELEGRAM_BOT_TOKEN` | optional | Bot token from @BotFather; enables Telegram notifications. |
+| `TELEGRAM_LOCALE` | optional | Language of the bot's messages (`ru` by default). |
 | `PGLITE_DATA_DIR` | optional, local | Custom folder for the embedded development database |
 
 ### Database scripts
@@ -82,6 +88,7 @@ scripts/             Production migration script
 src/
   app/[locale]/      Home page, /booking and /admin for each language
   app/api/slots/     Available time slots API
+  app/api/telegram/  Telegram webhook (pairing + Confirm/Cancel buttons)
   components/
     admin/           Admin shell, filters, status badges, schedule editor
     booking/         Booking wizard steps, summary and success screen
@@ -92,6 +99,7 @@ src/
   i18n/              Locale routing and request config
   lib/admin/         Sessions, permission guards, queries, admin server actions, demo data
   lib/booking/       Availability, validation, server action, clinic time helpers
+  lib/telegram/      Bot API client, notification messages, chat settings
   lib/site-data.ts   Clinic data that does not depend on language (prices, ids)
   proxy.ts           Locale detection and redirects
 ```

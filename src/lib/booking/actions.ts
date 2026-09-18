@@ -3,6 +3,7 @@
 import { asc, inArray } from "drizzle-orm";
 import { DatabaseUnavailableError, getDb } from "@/db";
 import { appointments, doctors } from "@/db/schema";
+import { notifyNewAppointment } from "@/lib/telegram/notify";
 import { getAvailableSlots, getDoctorIdsForService, getService } from "./availability";
 import { clinicDateTime, timeToMinutes } from "./time";
 import { appointmentSchema } from "./validation";
@@ -116,12 +117,23 @@ export async function createAppointment(
         })
         .returning({ id: appointments.id });
 
-      return { id: row.id, doctorId };
+      return { id: row.id, doctorId, startsAt };
     });
 
     if (!created) {
       return { status: "error", error: "slotTaken" };
     }
+
+    // Tell the clinic in Telegram; never blocks or fails the booking
+    await notifyNewAppointment(db, {
+      id: created.id,
+      serviceId: input.serviceId,
+      doctorId: created.doctorId,
+      startsAt: created.startsAt,
+      patientName: input.name,
+      patientPhone: input.phone,
+      comment: input.comment,
+    });
 
     return {
       status: "success",
